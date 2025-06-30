@@ -75,7 +75,7 @@
       "id": 1,
       "title": "Remove Shadow AI SaaS",
       "description": "A full-stack AI SaaS platform for image transformation.",
-      "image": "/projects/project1.png",
+      "image": "/projectsImage/project1.png",
       "tags": [
         "React",
         "TailwindCSS",
@@ -88,7 +88,7 @@
       "id": 2,
       "title": "Avif To Png Tool",
       "description": "This project is a tool to convert AVIF images to PNG format.",
-      "image": "/projects/project2.png",
+      "image": "/projectsImage/project2.png",
       "tags": [
         "JavaScript",
         "HTML",
@@ -101,7 +101,7 @@
       "id": 3,
       "title": "Phone Number Generator",
       "description": "This project is a tool to generates random phone numbers.",
-      "image": "/projects/project3.png",
+      "image": "/projectsImage/project3.png",
       "tags": [
         "React",
         "Next.js",
