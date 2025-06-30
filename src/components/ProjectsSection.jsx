@@ -1,34 +1,6 @@
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
+import data from "../lib/data";
 
-const projects = [
-    {
-        id: 1,
-        title: "Remove Shadow AI SaaS",
-        description: "A full - stack AI SaaS platform for image transformation.",
-        image: "/projects/project1.png",
-        tags: ["React", "TailwindCSS", "TypeScript"],
-        demoUrl: "https://removeshadow.com",
-        githubUrl: "https://github.com/chatgptsuper/remove-shadow-ai",
-    },
-    {
-        id: 2,
-        title: "Avif To Png Tool",
-        description: "This project is a tool to convert AVIF images to PNG format.",
-        image: "/projects/project2.png",
-        tags: ["JavaScript", "HTML", "CSS"],
-        demoUrl: "https://aviftopng.top",
-        githubUrl: "https://github.com/chatgptsuper/avif-to-png",
-    },
-    {
-        id: 3,
-        title: "Phone Number Generator",
-        description: "This project is a tool to generates random phone numbers.",
-        image: "/projects/project3.png",
-        tags: ["React", "Next.js", "TypeScript"],
-        demoUrl: "https://random-phone-numbers.com",
-        githubUrl: "https://github.com/chatgptsuper/random-phone-numbers.com",
-    },
-];
 
 export const ProjectSection = () => {
     return (
@@ -46,7 +18,7 @@ export const ProjectSection = () => {
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {projects.map((project, key) => {
+                    {data.projects.map((project, key) => {
                         return (
                             <div
                                 key={key}
@@ -62,9 +34,9 @@ export const ProjectSection = () => {
 
                                 <div className="p-6">
                                     <div className="flex flex-wrap gap-2 mb-4">
-                                        {project.tags.map((tag) => {
+                                        {project.tags.map((tag,key) => {
                                             return (
-                                                <span className="px-2 py-1 text-xs font-medium border rounded-full bg-primary/30 ">
+                                                <span key={key} className="px-2 py-1 text-xs font-medium border rounded-full bg-primary/30 ">
                                                     {tag}
                                                 </span>
                                             );
@@ -116,3 +88,5 @@ export const ProjectSection = () => {
         </section>
     );
 };
+
+export default ProjectSection;

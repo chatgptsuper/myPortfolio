@@ -1,4 +1,6 @@
 import { ArrowDown } from "lucide-react";
+import { NavLink } from "react-router-dom";
+import data from "../lib/data";
 
 export const HeroSection = () => {
     return (
@@ -22,27 +24,23 @@ export const HeroSection = () => {
                         </span>
                     </h1>
                     <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-                        As a passionate front-end enthusiast, I'm
-                        dedicated to leveraging my skills and knowledge to
-                        create impactful solutions. This portfolio showcases my
-                        journey, projects, and the value I can bring to the
-                        table.
+                        {data.hero.description}
                     </p>
                     <div className="pt-4 opacity-0 animate-fade-in-delay-4">
-                        <a href="#Projects" className="cosmic-button">
-                            View My Work
-                        </a>
+                        <NavLink to="/projects" className="cosmic-button">
+                            {data.hero.cta}
+                        </NavLink>
                     </div>
                 </div>
             </div>
 
-            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
+            {/* <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
                 <span className="text-sm text-muted-foreground mb-2">
                     {" "}
                     Scroll{" "}
                 </span>
                 <ArrowDown className="h-5 w-5 text-primary" />
-            </div>
+            </div> */}
         </section>
     );
 };

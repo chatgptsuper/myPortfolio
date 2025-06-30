@@ -7,12 +7,12 @@ export const Footer = () => {
                 &copy; {new Date().getFullYear()} AlwaysHere Ye. All rights
                 reserved.
             </p>
-            <a
+            {/* <a
                 href="#hero"
                 className="p-2 rounded-full bg-primary/10 hover:bg-primary/20 text-primary transition-colors"
             >
                 <ArrowUp size={20} />
-            </a>
+            </a> */}
         </footer>
     );
 };

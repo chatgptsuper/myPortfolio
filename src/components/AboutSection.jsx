@@ -8,7 +8,7 @@ export const AboutSection = () => {
                     About <span className="text-primary"> Me</span>
                 </h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center pt-24">
 
                     <div className="space-y-6">
                         <h3 className="text-2xl font-semibold">
@@ -102,3 +102,5 @@ export const AboutSection = () => {
         </section>
     );
 };
+
+export default AboutSection;

@@ -1,26 +1,32 @@
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useStore } from "../store/useStore";
+import { NavLink } from "react-router-dom";
 
 const navItems = [
-    { name: "Home", href: "#Hero" },
-    { name: "About", href: "#About" },
-    { name: "Skills", href: "#Skills" },
-    { name: "Projects", href: "#Projects" },
-    { name: "Contact", href: "#Contact" },
+    { name: "Home", path: "/home" },
+    { name: "About", path: "/about" },
+    { name: "Skills", path: "/skills" },
+    { name: "Projects", path: "/projects" },
+    { name: "Contact", path: "/contact" },
 ];
 
 export const Navbar = () => {
-    const [isScrolled, setIsScrolled] = useState(false);
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    // const [isScrolled, setIsScrolled] = useState(false);
+    // const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const { isScrolled, setIsScrolled, isMenuOpen, setIsMenuOpen } = useStore();
+    // const location = useLocation();
 
     useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.screenY > 10); // 页面垂直滚动距离大于10px时设置isScrolled为true
+            setIsScrolled(window.scrollY > 10); // 页面垂直滚动距离大于10px时设置isScrolled为true
         };
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+    }, [setIsScrolled]);
+
     return (
         <nav
             className={cn(
@@ -31,9 +37,9 @@ export const Navbar = () => {
             )}
         >
             <div className="container flex items-center justify-between">
-                <a
+                <NavLink
                     className="text-xl font-bold text-primary flex items-center cursor-pointer"
-                    href="#hero"
+                    to="/home"
                 >
                     <span className="relative z-10">
                         <span className="text-glow text-foreground">
@@ -41,26 +47,26 @@ export const Navbar = () => {
                         </span>{" "}
                         Portfolio
                     </span>
-                </a>
+                </NavLink>
 
                 {/* desktop nav */}
                 <div className="hidden md:flex space-x-8">
                     {navItems.map((item, key) => {
                         return (
-                            <a
+                            <NavLink
                                 key={key}
-                                href={item.href}
+                                to={item.path}
                                 className="text-foreground/80 hover:text-primary transition-colors cursor-pointer"
                             >
                                 {item.name}
-                            </a>
+                            </NavLink>
                         );
                     })}
                 </div>
 
                 {/* mobei nav */}
                 <button
-                    onClick={() => setIsMenuOpen((prev) => !prev)}
+                    onClick={() => setIsMenuOpen(!isMenuOpen)}
                     className="md:hidden p-2 text-foreground z-50"
                     aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
                 >
@@ -79,14 +85,14 @@ export const Navbar = () => {
                     <div className="flex flex-col space-y-8 text-xl">
                         {navItems.map((item, key) => {
                             return (
-                                <a
+                                <NavLink
                                     key={key}
-                                    href={item.href}
+                                    to={item.path}
                                     className="text-foreground/80 hover:text-primary transition-colors duration-300"
                                     onClick={() => setIsMenuOpen(false)}
                                 >
                                     {item.name}
-                                </a>
+                                </NavLink>
                             );
                         })}
                     </div>

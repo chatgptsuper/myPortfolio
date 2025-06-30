@@ -8,14 +8,16 @@ import {
     Twitch,
     Twitter,
 } from "lucide-react";
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import { cn } from "@/lib/utils";
 import emailjs from "@emailjs/browser";
 import { useToast } from "@/hooks/use-toast"
+import { useStore } from "../store/useStore";
 
 export const ContactSection = () => {
     const { toast } = useToast();
-    const [isSubmitting, setIsSubmitting] = useState(false);
+    // const [isSubmitting, setIsSubmitting] = useState(false);
+    const { contactForm, updateContactForm, resetContactForm, isSubmitting, setIsSubmitting } = useStore();
     const form = useRef();
 
     const handleSubmit = async (e) => {
@@ -34,6 +36,7 @@ export const ContactSection = () => {
             .then(
                 () => {
                     setIsSubmitting(false)
+                    resetContactForm() // 重置表单
                     toast({
                         title: "Message sent!",
                         description: "Thank you for your message. I'll get back to you soon.",
@@ -48,7 +51,7 @@ export const ContactSection = () => {
                     })
                     console.log("FAILED...", error.text);
                 }
-                
+
             );
     };
 
@@ -156,6 +159,8 @@ export const ContactSection = () => {
                                     id="name"
                                     name="name"
                                     required
+                                    value={contactForm.name}
+                                    onChange={(e)=>updateContactForm("name",e.target.value)}
                                     className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
                                     placeholder="Your Name"
                                 />
@@ -173,6 +178,8 @@ export const ContactSection = () => {
                                     id="email"
                                     name="email"
                                     required
+                                    onChange={(e)=>updateContactForm("email",e.target.value)}
+                                    value={contactForm.email}
                                     className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
                                     placeholder="xxxxxxxx@gmail.com"
                                 />
@@ -189,6 +196,8 @@ export const ContactSection = () => {
                                     id="message"
                                     name="message"
                                     required
+                                    value={contactForm.message}
+                                    onChange={(e)=>updateContactForm("message",e.target.value)}
                                     className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
                                     placeholder="Hello, I'd like to talk about..."
                                 />

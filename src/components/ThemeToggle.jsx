@@ -1,31 +1,30 @@
 import { Moon, Sun } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { useStore } from "../store/useStore";
 
 export const ThemeToggle = () => {
-    const [isDarkMode, setIsDarkMode] = useState(false);
+    const { theme, setTheme } = useStore();
 
     useEffect(() => {
-        const storedItem = localStorage.getItem("theme");
-        if (storedItem === "dark") {
-            setIsDarkMode(true);
-            document.documentElement.classList.add("dark");
-        } else {
-            setIsDarkMode(false);
-            document.documentElement.classList.remove("dark");
-        }
-    }, []);
+        // const [isDarkMode, setIsDarkMode] = useState(false);
+
+        const storedTheme = localStorage.getItem("theme") || "dark";
+        setTheme(storedTheme);
+
+        // const storedItem = localStorage.getItem("theme");
+        // if (storedItem === "dark") {
+        //     setIsDarkMode(true);
+        //     document.documentElement.classList.add("dark");
+        // } else {
+        //     setIsDarkMode(false);
+        //     document.documentElement.classList.remove("dark");
+        // }
+    }, [setTheme]);
 
     const toggleTheme = () => {
-        if (isDarkMode) {
-            setIsDarkMode(false);
-            document.documentElement.classList.remove("dark");
-            localStorage.setItem("theme", "light");
-        } else {
-            setIsDarkMode(true);
-            document.documentElement.classList.add("dark");
-            localStorage.setItem("theme", "dark");
-        }
+        const newTheme = theme === "dark" ? "light" : "dark";
+        setTheme(newTheme);
     };
     return (
         <button
@@ -35,7 +34,7 @@ export const ThemeToggle = () => {
                 "focus:outline-hidden"
             )}
         >
-            {isDarkMode ? (
+            {theme === "dark" ? (
                 <Sun className="h-6 w-6 text-yellow-300 cursor-pointer" />
             ) : (
                 <Moon className="h-6 w-6 text-blue-900 cursor-pointer" />

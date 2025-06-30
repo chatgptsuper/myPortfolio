@@ -1,0 +1,114 @@
+{
+  "hero": {
+    "description": "As a passionate front-end enthusiast, I'm dedicated to leveraging my skills and knowledge to create impactful solutions. This portfolio showcases my journey, projects, and the value I can bring to the table.",
+    "cta": "View My Work"
+  },
+  "skills": [
+    {
+      "name": "HTML/CSS",
+      "level": 80,
+      "category": "frontend"
+    },
+    {
+      "name": "JavaScript",
+      "level": 95,
+      "category": "frontend"
+    },
+    {
+      "name": "React",
+      "level": 90,
+      "category": "frontend"
+    },
+    {
+      "name": "TypeScript",
+      "level": 80,
+      "category": "frontend"
+    },
+    {
+      "name": "Tailwind CSS",
+      "level": 80,
+      "category": "frontend"
+    },
+    {
+      "name": "Next.js",
+      "level": 85,
+      "category": "frontend"
+    },
+    {
+      "name": "Node.js",
+      "level": 80,
+      "category": "backend"
+    },
+    {
+      "name": "Express",
+      "level": 75,
+      "category": "backend"
+    },
+    {
+      "name": "MongoDB",
+      "level": 70,
+      "category": "backend"
+    },
+    {
+      "name": "PostgreSQL",
+      "level": 65,
+      "category": "backend"
+    },
+    {
+      "name": "Git/GitHub",
+      "level": 90,
+      "category": "tools"
+    },
+    {
+      "name": "Docker",
+      "level": 70,
+      "category": "tools"
+    },
+    {
+      "name": "VS Code",
+      "level": 95,
+      "category": "tools"
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "title": "Remove Shadow AI SaaS",
+      "description": "A full-stack AI SaaS platform for image transformation.",
+      "image": "/projects/project1.png",
+      "tags": [
+        "React",
+        "TailwindCSS",
+        "TypeScript"
+      ],
+      "demoUrl": "https://removeshadow.com",
+      "githubUrl": "https://github.com/chatgptsuper/remove-shadow-ai"
+    },
+    {
+      "id": 2,
+      "title": "Avif To Png Tool",
+      "description": "This project is a tool to convert AVIF images to PNG format.",
+      "image": "/projects/project2.png",
+      "tags": [
+        "JavaScript",
+        "HTML",
+        "CSS"
+      ],
+      "demoUrl": "https://aviftopng.top",
+      "githubUrl": "https://github.com/chatgptsuper/avif-to-png"
+    },
+    {
+      "id": 3,
+      "title": "Phone Number Generator",
+      "description": "This project is a tool to generates random phone numbers.",
+      "image": "/projects/project3.png",
+      "tags": [
+        "React",
+        "Next.js",
+        "TypeScript"
+      ],
+      "demoUrl": "https://random-phone-numbers.com",
+      "githubUrl": "https://github.com/chatgptsuper/random-phone-numbers.com"
+    }
+  ]
+}
